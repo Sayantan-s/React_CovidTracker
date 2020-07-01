@@ -1,0 +1,40 @@
+html,body
+{
+    background: linear-gradient(to bottom, #00c8ff6e, #0073ff8f);
+    font-size: 100%;
+    &::-webkit-scrollbar
+    {
+        display : none;
+    }
+    #root
+    {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scrollbar-width: none;
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+    .App-container
+    {
+        width: 90vw;
+        margin: 30px auto;
+        .App
+        {
+            height: auto;
+            background-color: #e3f2fd;
+            padding: 15px 20px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            overflow: auto;
+            justify-content: space-between;
+            box-shadow:  0 0 0 1px rgba(175, 175, 175, 0.568),
+            inset -2px 0 7px rgba(186, 196, 195, 0.863),
+            inset 2px 0 7px rgba(49, 23, 75, 0.233);
+            border-radius: 10px;
+        }
+    }
+    }
+}
