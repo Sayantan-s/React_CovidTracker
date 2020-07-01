@@ -1,5 +1,5 @@
-# React Bootstrap with Material Design
-MDBootstrap for React
+# React Covid Tracker SPA for desktop(not responsive)
+Apex-charts,React-Lottie
 
 ## Getting Started
 To test, contribute or just see what we did follow few easy steps:
