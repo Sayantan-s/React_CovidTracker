@@ -4,6 +4,7 @@
 2.React Lottie.
 3.Framer Motion.
 4.Bootstrap 4
+5.React-Leaflet
 
 ## Getting Started
 To test, contribute or just see what we did follow few easy steps:
