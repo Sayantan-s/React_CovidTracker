@@ -1,4 +1,4 @@
-# React Covid Tracker SPA for desktop(not responsive)
+# React Covid Tracker SPA (not responsive)
 ## Tools used : 
 1.Apex Charts.
 2.React Lottie.
