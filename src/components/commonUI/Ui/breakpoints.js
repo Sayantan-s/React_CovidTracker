@@ -1,0 +1,1 @@
+export const FIRSTBREAK_POINT = 1580

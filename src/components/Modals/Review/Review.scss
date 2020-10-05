@@ -1,0 +1,59 @@
+@import '../../../sass/typo.scss';
+@import '../../../sass/variable.scss';
+
+.Review-Form
+{
+    position: fixed;
+    top:20%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    background-color: white;
+    padding: 2rem;
+    border-radius: 3rem;
+    box-shadow: 0px 5px 15px rgba(3, 3, 3, 0.2);
+    display: grid;
+    grid-row: 1fr 1fr;
+    grid-row-gap: 2rem;
+    z-index: 5000;
+    &--elements
+    {
+        border: 2px solid rgba(169, 145, 255, 0.388);
+        border-radius: 3rem;
+        outline : none;
+        padding: 1.5rem;
+        transition: 0.5s all;
+        width:32rem;
+        &:focus
+        {
+            border: 2px solid rgba(169, 145, 255, 0.9);
+        }
+    }
+    &--send
+    {
+        background-color: rgb(169, 145, 255);
+        border-radius: 50%;
+        fill: white;
+        font-size: 4rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: 0px 5px 15px rgba(169, 145, 255, 0.411);
+        transition: 0.3s all;
+        cursor: pointer;
+        &:active
+        {
+            box-shadow: 0 0 0 rgba(169, 145, 255, 0.411);
+        }
+    }
+    &--close
+    {
+        background-color:  rgb(255, 85, 85);
+        fill: white;
+        font-size: 3.2rem;
+        border-radius: 50%;
+        position: absolute;
+        right: -0.5rem;
+        top: -1rem;
+        box-shadow: 0px 5px 15px rgba(255, 85, 85, 0.459);
+        cursor: pointer;
+    }
+}

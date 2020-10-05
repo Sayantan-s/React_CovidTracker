@@ -1,0 +1,45 @@
+@import '../../../../../sass/varibales.scss';
+
+.tracker{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    grid-column-gap: 0.5rem;
+    &-img{
+        flex: 0.2;
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 0.5rem;
+        border-radius: 10px;
+        svg{
+            width: 2rem;
+            height: 2rem;
+            fill:white;
+        }
+    }
+    &-data{
+        flex: 0.6;
+        h3{
+            font-size: $smaller;
+            font-weight: $h6;
+            opacity: 0.5;
+            margin: 0;
+        }
+        h4{
+            margin: 0;
+            font-size: $medium;
+        }
+    }
+    &-incre{
+        flex: 0.2;
+        h3{
+            font-size: $smaller;
+            font-weight: $h1;
+            margin: 0;
+            color: $primary;
+        }
+    }
+}

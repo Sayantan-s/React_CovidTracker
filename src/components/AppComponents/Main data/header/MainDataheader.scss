@@ -1,0 +1,19 @@
+@import '../../../../sass/varibales.scss';
+
+.Main-data{
+    display: flex;
+    flex-direction: column;
+    h1{
+        font-weight: $h1;
+        margin: 0;
+        span{
+           text-transform: uppercase;
+        }
+    }
+    h2{
+        font-size: $small;
+        opacity: 0.5;
+        margin: 0;
+        font-weight: $h6;
+    }
+}

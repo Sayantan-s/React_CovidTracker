@@ -1,0 +1,52 @@
+@import '../../../../../sass/varibales.scss';
+
+.table-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: 0.5s all;
+    &:hover h2{
+        color : $base-col;
+    }
+    &:active{
+        transform : scale(0.9)
+    }
+    &--left{
+        display: flex;
+        align-items: center;
+        grid-column-gap: 0.6vw;
+        &_flag{
+            display: flex;
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 50%;
+            img{
+                margin: 0 auto;
+                width: auto;
+                height: 100%;
+                margin-left: -25%;
+            }
+        }
+        h3{
+            font-size: $smaller;
+            font-weight: $h1;
+            margin: 0;
+            color: $primary;
+        }
+        h2{
+            font-size: $smaller;
+            font-weight: $h1;
+            color: $base-col-typo;
+        }
+    }
+    &--right{
+        h4{
+            font-size: $small;
+        }
+    }
+}

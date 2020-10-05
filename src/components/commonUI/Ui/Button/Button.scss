@@ -1,0 +1,13 @@
+@import '../../../../sass/varibales.scss';
+
+.button{
+    font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    border:none;
+    font-weight: $h1;
+    cursor:pointer;
+    &:active{
+        scale: 0.9;
+        transition: 0.5s all;
+    }
+}

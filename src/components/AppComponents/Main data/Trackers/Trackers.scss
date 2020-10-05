@@ -1,0 +1,19 @@
+@import '../../../../sass/varibales.scss';
+
+.Tracker-container{
+    display :flex;
+    grid-gap: 4vw;
+    width: max-content;
+    
+    @media only screen and (max-width : $firstbrk){
+        width : auto;
+    }
+    .Swipper{
+        display: flex;
+        height: 65px;
+        &-Slide{
+            max-width: 180px;
+            flex: 0 0 auto;
+        }
+    }
+}

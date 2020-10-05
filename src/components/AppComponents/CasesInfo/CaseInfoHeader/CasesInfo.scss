@@ -1,0 +1,11 @@
+@import '../../../../sass/varibales.scss';
+
+.CasesInfo{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    h1{
+        font-weight: $h1;
+        margin: 0;
+    }
+}

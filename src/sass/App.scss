@@ -1,0 +1,41 @@
+@import './varibales.scss';
+body{
+    .App
+    {
+        margin: 2rem 0 2rem 0 ;
+        backdrop-filter: blur(50px);
+        margin: 2rem;
+        border-radius: 3rem;
+        background-color: rgba(255, 255, 255, 0.664);
+        overflow: hidden;
+        display: flex;
+        color: white;
+        &-nav{
+            background-color: #222529;
+            flex: 0.05;
+            & > div
+            {
+                border-radius: 3rem;
+            }
+        }
+        &-maindata{
+            background-color: #282B2E;
+            flex: 0.75;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-self: start;
+            grid-gap : 2rem;
+        }
+        &-tracks{
+            background-color: #222529;
+            flex: 0.2;
+            width: max-content;
+            display:flex;
+            flex-direction: column;
+            padding: 2.5rem;
+            grid-row-gap: 1rem;
+        }
+    }
+
+}

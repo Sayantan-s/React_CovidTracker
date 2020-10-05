@@ -1,0 +1,19 @@
+@import '../../../sass/varibales.scss';
+
+.Navbar{
+    margin: 3rem 0;
+    &-svg{
+        width: 2rem;
+        height: 2rem;
+        margin: 0 auto;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        box-shadow: -3px 2px 7px rgba(0, 0, 0, 0.301),
+        3px 2px 7px rgba(0, 0, 0, 0.199);;
+        svg{
+            width: 2rem;
+            height: 2rem;
+            fill : $active;
+        }
+    }
+}

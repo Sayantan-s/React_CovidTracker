@@ -1,0 +1,86 @@
+@import '../../../../sass/varibales.scss';
+.Maps{
+    height: 850px;
+    width: 100%;
+    border-radius: 10px;
+    .leaflet-container{
+        height: 100%;
+        max-width: 100%;
+        border-radius: 10px;
+        position: relative;
+       .leaflet-map-pane{
+        .leaflet-popup-pane{
+            .leaflet-popup{
+                text-align: center;
+                .leaflet-popup-content-wrapper{
+                    background-color: $base1;
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 700;
+                    .leaflet-popup-content{
+                        &--img{
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            margin: 0 auto;
+                            margin-bottom: 0.3rem;
+                            img{
+                                width: auto;
+                                margin: 0 auto;
+                                margin-left: -25%;
+                                height: 100%;
+                            }
+                        }
+                        &--rate{
+                            display: flex;
+                            grid-column-gap: 0.3rem;
+                            align-items: center;
+                            &:nth-child(3),&:nth-child(2),&:last-child,&:nth-child(4){
+                                &::before{
+                                    width: 10px;
+                                    height: 10px;
+                                    border-radius: 50%;
+                                    content: '';
+                                }
+                            }
+                            &:nth-child(2){
+                                &::before{
+                                    background-color: $infected;
+                                }
+                            }
+                            &:nth-child(3){
+                                &::before{
+                                    background-color: $active;
+                                }
+                            }
+                            &:nth-child(4){
+                                &::before{
+                                    background-color: $deaths;
+                                }
+                            }
+                            &:last-child{
+                                &::before{
+                                    background-color: $recovered;
+                                }
+                            }
+                            span{
+                                &:first-child{
+                                    color: $base-col-typo;
+                                }
+                                &:last-child{
+                                    color : $base-col;
+                                }   
+                            }
+                        }
+                    }
+                }
+                .leaflet-popup-tip-container{
+                    .leaflet-popup-tip{
+                        background-color: $base1;
+                    }
+                }
+            }
+        }
+       }
+    }
+}
