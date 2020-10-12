@@ -19,7 +19,7 @@ export const useWindowResize = () => {
 }
 
 
-export const useFetch = (url,options) => {
+/*export const useFetch = (url,options) => {
     const [response,setResp] = React.useState([]);
     const [error,setErr] = React.useState('');
     React.useEffect(() => {
@@ -38,7 +38,7 @@ export const useFetch = (url,options) => {
         response,
         error
     }
-}
+}*/
 
 
 export const useAxFetch = (AxURL,urlextention) => {

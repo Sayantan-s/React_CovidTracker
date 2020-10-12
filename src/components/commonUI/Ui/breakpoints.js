@@ -1,1 +1,5 @@
-export const FIRSTBREAK_POINT = 1580
+export const FIRSTBREAK_POINT = 1640
+export const SECONDBREAK_POINT = 1610
+export const THIRDBREAK_POINT = 1130
+export const FOURTHBREAK_POINT  = 950
+export const FIFTHBREAK_POINT = 790

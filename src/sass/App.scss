@@ -2,7 +2,6 @@
 body{
     .App
     {
-        margin: 2rem 0 2rem 0 ;
         backdrop-filter: blur(50px);
         margin: 2rem;
         border-radius: 3rem;
@@ -10,12 +9,21 @@ body{
         overflow: hidden;
         display: flex;
         color: white;
+        @media only screen and (max-width : $secondbrk){
+            flex-direction: column;
+            max-width: 1100px;
+            margin: 2rem auto;
+        }
         &-nav{
             background-color: #222529;
             flex: 0.05;
+            width: max-content;
             & > div
             {
                 border-radius: 3rem;
+            }
+            @media only screen and (max-width : $firstbrk){
+                flex: 0;
             }
         }
         &-maindata{
@@ -25,16 +33,31 @@ body{
             display: flex;
             flex-direction: column;
             justify-self: start;
-            grid-gap : 2rem;
+            z-index:1000;
+            grid-gap: 2rem;
+            @media only screen and (max-width : $firstbrk){
+                flex: 0.8;
+            }
+            @media only screen and (max-width : $secondbrk){
+                justify-content: space-between;
+            }
         }
         &-tracks{
             background-color: #222529;
+            z-index: 20000;
             flex: 0.2;
-            width: max-content;
             display:flex;
             flex-direction: column;
             padding: 2.5rem;
             grid-row-gap: 1rem;
+            min-width : max-content;
+            @media only screen and (max-width : $secondbrk){
+                width: 100%;
+                flex-direction: row;
+                flex: 1;
+                grid-gap: 2rem;
+                align-items: flex-end;
+            }
         }
     }
 

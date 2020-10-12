@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
     grid-column-gap: 0.5rem;
+    width: max-content;
     &-img{
         flex: 0.2;
         width: 2rem;

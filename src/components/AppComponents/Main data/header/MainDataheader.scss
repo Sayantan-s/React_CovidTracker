@@ -6,8 +6,23 @@
     h1{
         font-weight: $h1;
         margin: 0;
-        span{
+        display: flex;
+        .Svg{
            text-transform: uppercase;
+           display: flex;
+           align-items: center;
+           margin-left: 0.5rem;
+           &-span{
+               width: 2rem;
+               margin-left: 0.5rem;
+               transform: translateY(2px);
+               svg{
+                width: 2rem;
+                height: 2rem;
+                fill : $active;
+                filter : drop-shadow( 2px 1px 10px $active)
+               }
+           }
         }
     }
     h2{

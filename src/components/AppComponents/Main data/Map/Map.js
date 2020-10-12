@@ -5,12 +5,17 @@ import React from 'react'
 import './Map.scss'
 import { CRS } from 'leaflet'
 import { DataContext } from '../../../Context/NewDataContext'
+import { motion } from 'framer-motion'
 
 const Maps = () => {
 	
 	const { latitude,longitude,Data,zoom } = React.useContext(DataContext)
     return (
-        <div className="Maps">
+		<motion.div 
+		initial = {{ opacity : 0 }}
+		animate = {{ opacity : 1 }}
+		transition = {{ duration : 0.8,delay : 0.2 }}
+		className="Maps">
 			<LeafletMap
 			zoomControl={false}
 			center={[latitude,longitude]}
@@ -60,7 +65,7 @@ const Maps = () => {
 					))
 				}
 			</LeafletMap>
-        </div>
+        </motion.div>
     )
 }
 

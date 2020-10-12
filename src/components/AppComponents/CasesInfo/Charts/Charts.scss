@@ -4,6 +4,21 @@
 .charts{
     display: flex;
     flex-direction: column;
+    height: 100%;
+    @media only screen and (max-width : $secondbrk){
+        flex: 0.55;
+    }
+    h3{
+        margin: 0;
+        span{
+            &:first-child{
+                color : $base-col-typo;
+            }
+            &:last-child{
+                color : $base-col
+            }
+        }
+    }
     &-updated{
         font-size: $small;
         margin: 0;

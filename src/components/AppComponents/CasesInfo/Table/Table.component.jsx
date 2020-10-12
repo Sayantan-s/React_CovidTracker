@@ -1,15 +1,18 @@
 import React from 'react'
+import { useWindowResize } from '../../../commonUI/customHooks/customHooks'
 import { DataContext } from '../../../Context/NewDataContext'
 import './Table.scss'
 import Tablerow from './TableRow/Tablerow.component'
+import { SECONDBREAK_POINT } from '../../../commonUI/Ui/breakpoints'
 const Table = () => {
     const[search,setSearch] = React.useState('');
+    const [width] = useWindowResize()
     const[dataType,setType] = React.useState({
         active : true,
         recov : false,
         death : false
     })
-    const { Data,setCos,setZoom,setCountry,setColor,setNum,setCn } = React.useContext(DataContext)
+    const { Data,setCos,setZoom,setCountry,setColor,setNum,setCn,setID } = React.useContext(DataContext)
     const Buttons = [
         {
             name : 'Active'
@@ -25,11 +28,12 @@ const Table = () => {
     const InstantData = Data.filter(country => {
         return country.country.toLowerCase().includes(search.toLowerCase())
     })
-    const onCountryChange = (lat,long,country,cn) => {
+    const onCountryChange = (lat,long,country,cn,id) => {
        setCos(lat,long)
        setZoom(6)
        setCountry(country)
        setCn(cn)
+       setID(id)
     }
     const ActiveHandler = () => {
         setType({
@@ -60,6 +64,9 @@ const Table = () => {
     }
     return (
           <div className="table">
+            {width <= SECONDBREAK_POINT ? <h1>
+                Cases Info
+            </h1> : null}
             <div className="table-search">
                 <input
                 type="search"
@@ -92,9 +99,9 @@ const Table = () => {
             </div>
             <div className="table-data">
                 {
-                    InstantData.map(country => {
+                    InstantData.map((country,id) => {
                         return <Tablerow
-                        click={_ => onCountryChange(country.lat,country.long,country.iso,country.country)}
+                        click={_ => onCountryChange(country.lat,country.long,country.iso,country.country,id)}
                         key={country.country}
                         country={country.country}
                         number={

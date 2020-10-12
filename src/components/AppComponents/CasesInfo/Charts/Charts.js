@@ -1,12 +1,16 @@
 import React from 'react'
 import ReactApexChart from 'react-apexcharts'
+import { useWindowResize } from '../../../commonUI/customHooks/customHooks'
+import { SECONDBREAK_POINT } from '../../../commonUI/Ui/breakpoints'
 import Button from '../../../commonUI/Ui/Button/Button.component'
 import { Github } from '../../../commonUI/Ui/UI'
 import { DataContext } from '../../../Context/NewDataContext'
 import './Charts.scss'
+//import Rates from './Rates/Rates'
 const Charts = () => {
     const Months = ['Jan', 'Feb','March', 'April','May', 'June','July', 'Aug','Sept', 'Oct','Nov', 'Dec']
     const { history,trackColor,trackNum,country } = React.useContext(DataContext)
+    const [ width ] = useWindowResize()
     const data= {
         series :[{
             name: "Cases",
@@ -14,7 +18,7 @@ const Charts = () => {
         }],
         options: {
             chart: {
-              height: 350,
+              height: '100%',
               type: 'line',
               zoom: {
                 enabled: false
@@ -30,16 +34,6 @@ const Charts = () => {
               colors:[trackColor]
             },
             xaxis: { axisBorder:{ show : false },axisTicks:{show:false},labels:{show :true} },
-            title: {
-            text: `Monthly Spike Analysis : ${country}`,
-              align: 'left',
-              style: {
-                fontSize:  '14px',
-                fontWeight:  'bold',
-                fontFamily:  'Poppins',
-                color:  '#65676A'
-              },
-            },
             yaxis : {
                 labels: {
                     offsetX: -30,
@@ -70,12 +64,19 @@ const Charts = () => {
     }
     return (
         <div className="charts">
+              <h3>
+                <span>Monthly Spike Analysis :&nbsp;</span>
+                <span>&nbsp;{country}</span>
+              </h3>
+              <div>
+             
+              </div>
               <ReactApexChart
               width="100%"
               options={data.options} 
               series={data.series} 
               type="area" 
-              height={350} />
+              height={width <= SECONDBREAK_POINT ? 480 : 350} />
               <h1 className="charts-updated">
                   <span className="charts-updated--1">Updated</span>{" "}
                   <span className="charts-updated--2">{new Date().getDate()}{" "}{Months[new Date().getMonth()]}</span>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { GlobeV3URL, newURL } from '../../axios';
-import { useFetch } from '../commonUI/customHooks/customHooks';
+import { GlobeV3URL } from '../../axios';
+import { useAxFetch } from '../commonUI/customHooks/customHooks';
 export const DataContext = React.createContext();
 const NewDataContext = ({children}) => {
     const [country,setCountry] = useState("all")
@@ -12,7 +12,8 @@ const NewDataContext = ({children}) => {
         lat : -7.461,
         lng: -10.938
     })
-    const Resp = useFetch(newURL(`countries?yesterday=true&twoDaysAgo=false&sort=cases&allowNull=false`))
+    const [countryID,setID] = useState(0)
+    const Resp = useAxFetch(GlobeV3URL,`countries?yesterday=true&twoDaysAgo=false&sort=cases&allowNull=false`)
     React.useEffect(() => {
         GlobeV3URL(`historical/${country}?lastdays=30`)
         .then(resp => {
@@ -23,16 +24,17 @@ const NewDataContext = ({children}) => {
         })
         .catch(err => console.log(err))
     },[country])
-    const historicals = history => {
+    const historicals = (history => {
         return Object.values(history).map(data => {
             const dateData = Object.values(data)
             return dateData.map((data,id) => {
                 return dateData[id + 1] - data
             }).filter(data => !!data)
         })
-     }
+     })(HistoryData)
+     console.log(Resp)
     const [zoom,setZoom] = useState(3)
-    const Data = Resp.response.map(cn => {
+    const Data = Resp.resp.map(cn => {
         return{
             cases :cn.cases,
             active : cn.active,
@@ -52,9 +54,10 @@ const NewDataContext = ({children}) => {
         <DataContext.Provider value={{
             Data : Data,
             country : cn,
+            id : countryID,
             latitude : cooOr.lat,
             longitude : cooOr.lng,
-            history : historicals(HistoryData),
+            history : historicals,
             trackColor : tracCol,
             trackNum : trackNo,
             setCos : (lat,long) => {
@@ -78,6 +81,9 @@ const NewDataContext = ({children}) => {
             },
             setCn : country => {
                 setCn(country)
+            },
+            setID : (id) => {
+                setID(id)
             }
         }}>
             {children}
@@ -86,5 +92,3 @@ const NewDataContext = ({children}) => {
 }
 
 export default React.memo(NewDataContext)
-
-//`historical`,`${country}?lastdays=30`

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import './Spinner.scss'
 const Spinner = ({col}) => {
     return (

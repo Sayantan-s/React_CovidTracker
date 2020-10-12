@@ -6,7 +6,7 @@
   "dependencies": {
     "apexcharts": "^3.19.3",
     "axios": "^0.19.2",
-    "firebase": "^7.19.0",
+    "framer-motion": "^2.7.7",
     "leaflet": "^1.6.0",
     "node-sass": "^4.14.1",
     "react": "0.0.0-experimental-aae83a4b9",
@@ -15,8 +15,7 @@
     "react-icons": "^3.11.0",
     "react-leaflet": "^2.7.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0",
-    "swiper": "^6.2.0"
+    "react-scripts": "3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

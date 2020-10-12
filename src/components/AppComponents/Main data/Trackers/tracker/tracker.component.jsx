@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import './tracker.scss'
 const Tracker = ({Svg,title,number,incre,bgCol,format}) => {
     const Formatter = (number) => {
@@ -6,8 +7,29 @@ const Tracker = ({Svg,title,number,incre,bgCol,format}) => {
         `${(number/1000).toFixed(1)}K` : number > 100000 ? `${(number/1000000).toFixed(1)}M`: number ;
         return numberFomatter;
     }
+    const Animation = {
+        start : {
+            scale : 0
+        },
+        end : {
+            scale : 1,
+            transition : {
+                type : 'spring',
+                stiffness : 500,
+            }
+        },
+        hover : {
+            scale : 1.1,
+            transition : {
+                yoyo : 4
+            }
+        }
+    }
     return (
-        <div className="tracker">
+        <motion.div
+        whileHover = "hover"
+        variants = {Animation}
+        className="tracker">
             <div className="tracker-img" 
             style={{
                 background : `rgb(${bgCol})`,
@@ -28,7 +50,7 @@ const Tracker = ({Svg,title,number,incre,bgCol,format}) => {
                     {format? `+${Formatter(incre)}` : incre}
                 </h3>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
