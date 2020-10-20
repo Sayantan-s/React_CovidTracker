@@ -20,7 +20,6 @@ const PortalBtn = ({onClick,ifProps}) => {
         }
     }
     const [ width ] = useWindowResize()
-    console.log(ifProps)
     return ReactDOM.createPortal(
         <Button
         style={{rotate : ifProps === 1 ? 180 : 0}}
