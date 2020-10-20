@@ -1,7 +1,7 @@
 Tried converting this dribble design into a real world project: 
 # Design : https://cdn.dribbble.com/users/2117939/screenshots/11033647/media/836fcd9d55ed465354a9db5457699542.png
 
-# Link : https://react-covid-tracker-one.vercel.app/
+# Link : https://covlivebysayantan.netlify.app/
 
 # Dependencies : 
 1. React
