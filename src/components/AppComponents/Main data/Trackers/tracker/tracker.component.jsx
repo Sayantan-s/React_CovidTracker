@@ -20,9 +20,6 @@ const Tracker = ({Svg,title,number,incre,bgCol,format}) => {
         },
         hover : {
             scale : 1.1,
-            transition : {
-                yoyo : 4
-            }
         }
     }
     return (

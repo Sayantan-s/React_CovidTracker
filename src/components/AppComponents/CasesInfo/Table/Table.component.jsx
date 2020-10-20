@@ -1,10 +1,12 @@
 import React from 'react'
 import { useWindowResize } from '../../../commonUI/customHooks/customHooks'
+import Button from '../../../commonUI/Ui/Button/Button.component'
 import { DataContext } from '../../../Context/NewDataContext'
 import './Table.scss'
 import Tablerow from './TableRow/Tablerow.component'
-import { SECONDBREAK_POINT } from '../../../commonUI/Ui/breakpoints'
-const Table = () => {
+import { SECONDBREAK_POINT,HELPINGBRK,EIGHTHBREAK_POINT,TENTHBREAK_POINT } from '../../../commonUI/Ui/breakpoints'
+import { motion } from 'framer-motion'
+const Table = ({Click}) => {
     const[search,setSearch] = React.useState('');
     const [width] = useWindowResize()
     const[dataType,setType] = React.useState({
@@ -12,7 +14,7 @@ const Table = () => {
         recov : false,
         death : false
     })
-    const { Data,setCos,setZoom,setCountry,setColor,setNum,setCn,setID } = React.useContext(DataContext)
+    const { Data,setCos,setZoom,setCountry,setColor,setNum,setCn,setID,setLink } = React.useContext(DataContext)
     const Buttons = [
         {
             name : 'Active'
@@ -30,10 +32,12 @@ const Table = () => {
     })
     const onCountryChange = (lat,long,country,cn,id) => {
        setCos(lat,long)
-       setZoom(6)
+       setZoom(width < HELPINGBRK ? 4 : width > TENTHBREAK_POINT && width < EIGHTHBREAK_POINT ? 4.5 : 6)
        setCountry(country)
        setCn(cn)
        setID(id)
+       setLink(country)
+       Click()
     }
     const ActiveHandler = () => {
         setType({
@@ -62,6 +66,17 @@ const Table = () => {
         setColor('#4f4e53')
         setNum(2)
     }
+    const AnimationVariants = {
+        start: {
+          opacity: 0
+        },
+        end: {
+            opacity : 1,
+            transition: {
+                staggerChildren: 0.1,
+            },
+          },
+    }
     return (
           <div className="table">
             {width <= SECONDBREAK_POINT ? <h1>
@@ -78,7 +93,7 @@ const Table = () => {
             <div className="table-buttons">
                 {
                     Buttons.map(btn => {
-                        return <button 
+                        return <Button 
                         style={{background:  dataType.active && btn.name === "Active"? '#f6c879'
                         : dataType.recov && btn.name === "Recovered" ? '#5cc1ac' 
                         : dataType.death && btn.name === "Deaths" ? "#4f4e53"
@@ -93,30 +108,38 @@ const Table = () => {
                             :DeathHandler()
                         }}
                         className={'button'}
-                        >{btn.name}</button>
+                        >{btn.name}</Button>
                     })
                 }
             </div>
-            <div className="table-data">
-                {
-                    InstantData.map((country,id) => {
-                        return <Tablerow
-                        click={_ => onCountryChange(country.lat,country.long,country.iso,country.country,id)}
-                        key={country.country}
-                        country={country.country}
-                        number={
-                            dataType.active ? country.active 
-                            : dataType.recov ? country.recovered 
-                            : country.deaths}
-                        newnumber={
-                            dataType.active ? country.newCases
-                            : dataType.recov ? country.newRecovered
-                            : country.newDeaths}
-                        img={country.flag}
-                        />
-                    })
-                }
-            </div>
+            <>
+            {
+                Data &&   <motion.div 
+                variants={AnimationVariants}
+                initial="start"
+                animate="end"
+                className="table-data">
+                    {
+                        InstantData.map((country,id) => {
+                            return <Tablerow
+                            click={_ => onCountryChange(country.lat,country.long,country.iso,country.country,id)}
+                            key={country.country}
+                            country={country.country}
+                            number={
+                                dataType.active ? country.active 
+                                : dataType.recov ? country.recovered 
+                                : country.deaths}
+                            newnumber={
+                                dataType.active ? country.newCases
+                                : dataType.recov ? country.newRecovered
+                                : country.newDeaths}
+                            img={country.flag}
+                            />
+                        })
+                    }
+                </motion.div>
+            }
+            </>
           </div>
     )
 }

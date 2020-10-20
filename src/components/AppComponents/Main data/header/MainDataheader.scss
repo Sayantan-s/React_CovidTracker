@@ -7,6 +7,15 @@
         font-weight: $h1;
         margin: 0;
         display: flex;
+         @media only screen and (max-width : $helpingbrk){
+                font-size : 1.7rem
+              }
+        @media only screen and (max-width : $leventhbrk){
+                font-size : 1.5rem
+              }
+         @media only screen and (max-width : $helpingbrk2){
+               font-size : 1.3rem
+         }
         .Svg{
            text-transform: uppercase;
            display: flex;
@@ -15,12 +24,19 @@
            &-span{
                width: 2rem;
                margin-left: 0.5rem;
-               transform: translateY(2px);
+
+                @media only screen and (max-width : $helpingbrk2){
+                    width : 1.3rem;
+                }
                svg{
                 width: 2rem;
                 height: 2rem;
                 fill : $active;
-                filter : drop-shadow( 2px 1px 10px $active)
+                filter : drop-shadow( 2px 1px 10px $active);
+                @media only screen and (max-width : $helpingbrk2){
+                    width : 1.3rem;
+                    height: 1.3rem;
+                }
                }
            }
         }
@@ -30,5 +46,8 @@
         opacity: 0.5;
         margin: 0;
         font-weight: $h6;
+        @media only screen and (max-width : $helpingbrk2){
+            font-size: $smaller;
+         }
     }
 }

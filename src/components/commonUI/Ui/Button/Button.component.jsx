@@ -1,10 +1,14 @@
 import React from 'react'
 import './Button.scss'
-const Button = ({children,className}) => {
+import { motion } from 'framer-motion'
+const Button = ({children,className,element,...otherProps}) => {
     return (
-        <button className={`button ${className}`}>
+        <motion.button
+        {...otherProps}
+        whileTap={{ scale : 0.9 }}
+        className={`button ${className}`}>
             {children}
-        </button>
+        </motion.button>
     )
 }
 

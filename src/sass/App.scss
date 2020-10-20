@@ -2,62 +2,94 @@
 body{
     .App
     {
-        backdrop-filter: blur(50px);
         margin: 2rem;
         border-radius: 3rem;
         background-color: rgba(255, 255, 255, 0.664);
         overflow: hidden;
         display: flex;
         color: white;
-        @media only screen and (max-width : $secondbrk){
-            flex-direction: column;
-            max-width: 1100px;
-            margin: 2rem auto;
-        }
         &-nav{
             background-color: #222529;
-            flex: 0.05;
+            flex-basis: 5%;
             width: max-content;
             & > div
             {
                 border-radius: 3rem;
             }
-            @media only screen and (max-width : $firstbrk){
-                flex: 0;
+            @media only screen and (max-width : $thirdbrk){
+                display: none;
             }
+        }
+        @media only screen and (max-width : $firstbrk){
+            margin : 1rem;
+        }
+        @media only screen and (max-width : $secondbrk){
+            margin : 0rem;
+            border-radius: 0rem;
+        }
+        @media only screen and (max-width : $fourthbrk){
+               flex-direction : column;
+               margin: 2rem 11vw;
+               border-radius: 3rem;
+        }
+         @media only screen and (max-width : $fifthbrk){
+             margin : 2rem 7vw;
+         }
+        @media only screen and (max-width : $sixthbrk){
+             margin : 2rem 4vw;
+        }
+        @media only screen and (max-width :  $seventhbrk ){
+             margin : 1rem 2vw;
+        }
+        @media only screen and (max-width :  $eighthbrk ){
+             margin : 0;
+             border-radius: 0rem;
         }
         &-maindata{
             background-color: #282B2E;
-            flex: 0.75;
+            flex-basis: 75%;
             padding: 2.5rem;
             display: flex;
             flex-direction: column;
             justify-self: start;
             z-index:1000;
             grid-gap: 2rem;
-            @media only screen and (max-width : $firstbrk){
-                flex: 0.8;
-            }
-            @media only screen and (max-width : $secondbrk){
-                justify-content: space-between;
-            }
+            @media only screen and (max-width : $leventhbrk){
+                padding : 1.5rem;
+              }  
+            @media only screen and (max-width : $twelveth){
+                padding : 0.9rem;
+              }
+            
         }
         &-tracks{
             background-color: #222529;
             z-index: 20000;
-            flex: 0.2;
+            flex-basis : 20%;
             display:flex;
             flex-direction: column;
             padding: 2.5rem;
             grid-row-gap: 1rem;
-            min-width : max-content;
-            @media only screen and (max-width : $secondbrk){
-                width: 100%;
-                flex-direction: row;
-                flex: 1;
-                grid-gap: 2rem;
-                align-items: flex-end;
+            flex-shrink: 0;
+            @media only screen and (max-width : $fourthbrk){
+                 flex-direction :row;
+                 align-items : flex-end;
+                 grid-gap : 4rem
+             }
+            @media only screen and (max-width : $ninethbrk){
+                grid-gap : 2rem;
             }
+            @media only screen and (max-width : $tenthbrk){
+                flex-direction :column;
+                 align-items : center;
+                 justify-items : stretch;
+              }
+            @media only screen and (max-width : $leventhbrk){
+                padding : 1.5rem;
+              }
+            @media only screen and (max-width : $twelveth){
+                padding : 0.9rem;
+              }
         }
     }
 

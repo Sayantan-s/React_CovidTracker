@@ -7,8 +7,8 @@ const Rates = ({type,rate,bgCol}) => {
             <span>
                 {type}
             </span>
-            <span>
-                {rate}
+            <span >
+                {rate}%
             </span>
         </h4>
     )

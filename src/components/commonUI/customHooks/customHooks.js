@@ -17,30 +17,7 @@ export const useWindowResize = () => {
 
     return resize;
 }
-
-
-/*export const useFetch = (url,options) => {
-    const [response,setResp] = React.useState([]);
-    const [error,setErr] = React.useState('');
-    React.useEffect(() => {
-        (async() =>{
-          try{
-            const resp = await fetch(url,options);
-            const respJSON = await resp.json();
-            setResp(respJSON);
-          }
-          catch(error){
-              setErr(error)
-          }
-        })();
-    },[url,options])
-    return {
-        response,
-        error
-    }
-}*/
-
-
+ 
 export const useAxFetch = (AxURL,urlextention) => {
     const [resp,setResp] = React.useState([]);
     const [err,setErr] = React.useState('');

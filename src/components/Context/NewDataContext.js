@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { GlobeV3URL } from '../../axios';
-import { useAxFetch } from '../commonUI/customHooks/customHooks';
+import { useAxFetch,useWindowResize } from '../commonUI/customHooks/customHooks';
+import { EIGHTHBREAK_POINT,TENTHBREAK_POINT,HELPINGBRK,HELPINGBRK_2  } from '../commonUI/Ui/breakpoints'
 export const DataContext = React.createContext();
 const NewDataContext = ({children}) => {
     const [country,setCountry] = useState("all")
@@ -8,9 +9,11 @@ const NewDataContext = ({children}) => {
     const [cn,setCn] = useState('Global')
     const [tracCol,setCol] = useState('#f6c879')
     const [trackNo,setNum] = useState(0)
+    const [link,setLink] = useState('/all')
+    const [ width ] = useWindowResize()
     const [cooOr,setCo] = useState({
-        lat : -7.461,
-        lng: -10.938
+        lat : width < HELPINGBRK_2 ? 20.263 : -2.461,
+        lng: width < HELPINGBRK_2 ? 30.263 : -11.938
     })
     const [countryID,setID] = useState(0)
     const Resp = useAxFetch(GlobeV3URL,`countries?yesterday=true&twoDaysAgo=false&sort=cases&allowNull=false`)
@@ -24,7 +27,7 @@ const NewDataContext = ({children}) => {
         })
         .catch(err => console.log(err))
     },[country])
-    const historicals = (history => {
+    let historicals = (history => {
         return Object.values(history).map(data => {
             const dateData = Object.values(data)
             return dateData.map((data,id) => {
@@ -32,8 +35,13 @@ const NewDataContext = ({children}) => {
             }).filter(data => !!data)
         })
      })(HistoryData)
-     console.log(Resp)
-    const [zoom,setZoom] = useState(3)
+     const newHistoricals = ((arr,id1,id2) => {
+        const temp = arr[id1]
+        arr[id1] = arr[id2]
+        arr[id2] = temp
+        return arr
+     })(historicals,1,2)
+    const [zoom,setZoom] = useState(width < HELPINGBRK ? 2 : width > TENTHBREAK_POINT && width < EIGHTHBREAK_POINT ? 2.5 : 3)
     const Data = Resp.resp.map(cn => {
         return{
             cases :cn.cases,
@@ -57,16 +65,20 @@ const NewDataContext = ({children}) => {
             id : countryID,
             latitude : cooOr.lat,
             longitude : cooOr.lng,
-            history : historicals,
+            history : newHistoricals,
             trackColor : tracCol,
             trackNum : trackNo,
+            link : link,
+            zoom : zoom,
+            setLink : link => {
+                setLink(`countries/${link}?strict=true`)
+            },
             setCos : (lat,long) => {
                 setCo({
                     lat : lat,
                     lng : long
                 })
             },
-            zoom : zoom,
             setZoom : zoom => {
                 setZoom(zoom)
             },
@@ -82,7 +94,7 @@ const NewDataContext = ({children}) => {
             setCn : country => {
                 setCn(country)
             },
-            setID : (id) => {
+            setID : id => {
                 setID(id)
             }
         }}>

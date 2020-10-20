@@ -8,8 +8,14 @@
     @media only screen and (max-width : $secondbrk){
         flex: 0.55;
     }
+      @media only screen and (max-width : $tenthbrk){
+          width : 100%
+      }
     h3{
         margin: 0;
+         @media only screen and (max-width : $helpingbrk2){
+               font-size : 1rem
+         }
         span{
             &:first-child{
                 color : $base-col-typo;
@@ -18,6 +24,18 @@
                 color : $base-col
             }
         }
+    }
+    &-rate{
+        display :flex;
+        grid-gap : 0.9rem;
+        margin-top : 0.5rem;
+          @media only screen and (max-width : $leventhbrk){
+                justify-content : space-between;
+                grid-gap : 0.2rem;
+              }
+         @media only screen and (max-width : $thirteenthbrk){
+             flex-direction : column
+         }
     }
     &-updated{
         font-size: $small;
@@ -67,3 +85,4 @@
        }
     }
 }
+

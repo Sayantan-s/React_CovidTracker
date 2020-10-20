@@ -12,4 +12,5 @@ html,body{
 body::-webkit-scrollbar{
     display: none;
     background-color: #5cc1ac;
+    color : #4f4e53;
 }

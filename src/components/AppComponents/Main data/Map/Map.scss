@@ -1,8 +1,14 @@
 @import '../../../../sass/varibales.scss';
 .Maps{
-    height: 840px;
+    height: 900px;
     width: 100%;
     border-radius: 10px;
+    @media only screen and (max-width : $eighthbrk){
+        height : 700px
+    }
+    @media only screen and (max-width : $helpingbrk){
+        height : 500px
+    }
     .leaflet-container{
         height: 100%;
         max-width: 100%;

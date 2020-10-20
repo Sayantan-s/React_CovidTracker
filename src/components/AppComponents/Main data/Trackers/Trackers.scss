@@ -3,10 +3,15 @@
 .Tracker-container{
     display :flex;
     grid-gap: 4vw;
-    width: max-content;
-    @media only screen and (max-width : $secondbrk){
-        grid-gap: 4rem;
+    @media only screen and (max-width : $thirdbrk){
+            grid-gap: 3vw;
+        }
+    @media only screen and (max-width : $fourthbrk){
+            justify-content : space-between;
     }
+    @media only screen and (max-width :  $eighthbrk ){
+        width : 900px;
+    } 
     .Swipper{
         display: flex;
         height: 65px;

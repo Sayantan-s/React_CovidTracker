@@ -9,9 +9,24 @@
         flex: 0.45;
         width: auto;
     }
+     @media only screen and (max-width : $fourthbrk){
+         width : auto;
+     }
+       @media only screen and (max-width : $tenthbrk){
+          width : 100%
+      }
     h1{
         font-weight: $h1;
         margin: 0;
+        @media only screen and (max-width : $helpingbrk){
+                font-size : 1.7rem
+              }
+        @media only screen and (max-width : $leventhbrk){
+                font-size : 1.5rem
+              }
+         @media only screen and (max-width : $helpingbrk2){
+               font-size : 1.3rem
+         }
     }
     &-search{
         width: 100%;
@@ -47,9 +62,12 @@
         display:grid;
         grid-gap: 1rem;
         grid-template-columns: 1fr 1fr 1fr;
-        @media only screen and (max-width : $secondbrk){
-            justify-content: space-between;
-        }
+        @media only screen and (max-width :  $thirteenthbrk ){
+            grid-gap : 0.5rem
+        } 
+        @media only screen and (max-width :  $helpingbrk3 ){
+                grid-gap : 0.2rem
+             }
         .button{
             font-family: 'Poppins', sans-serif;
             padding: 0.5rem 1.4rem;
@@ -63,9 +81,12 @@
                 scale: 0.9;
                 transition: 0.5s all;
             }
-            @media only screen and (max-width : $secondbrk){
-                padding: 0.5rem 2.5rem;
-            }
+             @media only screen and (max-width :  $thirteenthbrk ){
+                   padding: 0.5rem 1rem;
+             }
+             @media only screen and (max-width :  $helpingbrk3 ){
+                  padding: 0.5rem 0.7rem;
+             }
         }
         .active{
             background: linear-gradient(145deg, #ffd681, #ddb46d);

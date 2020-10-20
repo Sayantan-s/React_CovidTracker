@@ -9,9 +9,6 @@
     width:100%;
     cursor: pointer;
     transition: 0.5s all;
-    @media only screen and (max-width : $secondbrk){
-        width: auto;
-    }
     &:hover h2{
         color : $base-col;
     }
@@ -21,9 +18,12 @@
     &--left{
         display: flex;
         align-items: center;
-        grid-column-gap: 0.6vw;
+        grid-column-gap: 1vw;
         @media only screen and (max-width : $secondbrk){
-            grid-column-gap: 0.8rem;
+            grid-column-gap: 1.2vw;
+        }
+        @media only screen and (max-width : $leventhbrk){
+             grid-column-gap: 0.5rem;
         }
         &_flag{
             display: flex;

@@ -2,4 +2,18 @@
 
 .Rates{
     display: flex;
+    margin : 0;
+    grid-gap : 0.4rem;
+    font-size : $smaller;
+    align-items :center;
+    span{
+        &:first-child{
+            width : 10px;
+            height : 10px;
+            border-radius : 50%
+        }
+        &:last-child{
+            color : $base-col-typo
+        }
+    }
 }

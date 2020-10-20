@@ -13,7 +13,7 @@ const MainDataheader = () => {
     return (
         <div className="Main-data">
             <h1>
-                Coronavirus {" "}
+                <span>Coronavirus {" "}</span>
                 <span className="Svg">
                     covid-19 { width < FIRSTBREAK_POINT ? Logo : null}
                 </span>

@@ -1,12 +1,8 @@
 import React from 'react'
 import './Spinner.scss'
-const Spinner = ({col}) => {
+const Spinner = () => {
     return (
-      <div className="Spinner">
-        <div className="nb-spinner" style={{
-          borderTopColor : `${col}`
-        }}></div>
-      </div>
+      <div className="Spinner" style={{width : '2rem',height: '2rem'}}>Loading</div>
     )
 }
 
