@@ -22,8 +22,18 @@ const App = () =>{
    const chartRef = React.useRef(null);
    const scrollTrue = _ => {
       setScroll(true)
-      console.log('App render!!')
    }
+   React.useEffect(() => {
+      window.addEventListener('scroll',_ => {
+         console.log(window.scrollY)
+         if(scrollBtn && window.scrollY > 920){
+            setDirection(1)
+         }
+         else if(scrollBtn && window.scrollY < 232){
+            setDirection(0)
+         }
+      })
+   },[scrollBtn])
    const handleScrollDown = _ => {
       const scrollIntoV = (ele,type) => ele.current.scrollIntoView({behavior: 'smooth',block : type});
       if(scrollDirection === 0){
@@ -39,6 +49,7 @@ const App = () =>{
          scrollIntoV(chartRef)
       }
    }
+    console.log('App render!!')
     return (
     <>
      <NewDataContext>

@@ -162,7 +162,7 @@ const Charts = (props,ref) => {
               <a
               target="_blank" 
               rel="noopener noreferrer"
-              href="https://github.com/Sayantanvisca" 
+              href="https://github.com/Sayantan-s" 
               className="charts-btn">
                 <Button>
                     <span><Github /></span>
