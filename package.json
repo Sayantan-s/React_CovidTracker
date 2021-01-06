@@ -5,7 +5,7 @@
   "// If You want to install mdbreact from our GitLab repository, please replace '4.27.0' with gitURL provided here ->": "git+https://oauth2:<YOUR-TOKEN-GOES-HERE>@git.mdbootstrap.com/mdb/react/re-pro.git",
   "dependencies": {
     "apexcharts": "^3.19.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "framer-motion": "^2.7.7",
     "leaflet": "^1.6.0",
     "node-sass": "^4.14.1",
