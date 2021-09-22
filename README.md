@@ -1,5 +1,8 @@
 Tried converting this dribble design into a real world project: 
-# Design : https://cdn.dribbble.com/users/2117939/screenshots/11033647/media/836fcd9d55ed465354a9db5457699542.png
+# Design :
+
+![image](https://user-images.githubusercontent.com/53304368/134397643-daaace36-a7e0-46a4-9c4f-4b5ade8687b0.png)
+
 
 # Link : https://covlivebysayantan.netlify.app/
 
