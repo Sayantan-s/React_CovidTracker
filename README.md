@@ -6,7 +6,8 @@ Tried converting this dribble design into a real world project:
 
 # Link : https://covlivebysayantan.netlify.app/
 
-# Dependencies : 
+# Techstack :
+
 1. React
 2. Scss
 3. React-leaflet
